@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/your/repository.git'
+                git branch: 'master', url: 'https://github.com/HasanDEV4/web-helm.git'
             }
         }
 
