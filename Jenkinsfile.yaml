@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/your/repository.git'
+            }
+        }
+
+        stage('Deploy Helm Chart') {
+            steps {
+                script {
+                    sh 'helm upgrade --install <release-name> ./path/to/your/helm/chart --namespace <namespace> --values values.yaml'
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Deployment successful!'
+        }
+        failure {
+            echo 'Deployment failed!'
+        }
+    }
+}
+
