@@ -11,7 +11,7 @@ pipeline {
         stage('Deploy Helm Chart') {
             steps {
                 script {
-                    sh 'helm upgrade --install <release-name> ./path/to/your/helm/chart --namespace <namespace> --values values.yaml'
+                    sh 'helm upgrade --install web-helmv3 ./home/hasan/Downloads/web-helm --namespace default --values values.yaml'
                 }
             }
         }
